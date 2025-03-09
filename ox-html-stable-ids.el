@@ -43,7 +43,7 @@ nil."
    (org-element-property :CUSTOM_ID datum)
    (let ((value (org-element-property :raw-value datum)))
      (when value
-       (org-html-stable-ids--to-kebab-case value)))))
+       (format "%s-%d" (org-html-stable-ids--to-kebab-case value) (org-element-property :level datum))))))
 
 (defun org-html-stable-ids--to-kebab-case (string)
   "Convert STRING to kebab-case."
